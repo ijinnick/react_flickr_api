@@ -1,0 +1,14 @@
+
+
+@media screen and (min-width: 800px){
+    .navbarBtnStyling{
+        margin: 0 auto;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .navbarBtnStyling,#searchInput{
+        margin: 8px auto;
+    }
+}
