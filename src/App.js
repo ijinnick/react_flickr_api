@@ -90,9 +90,8 @@ class App extends PureComponent {
           <Masonry className={'masonry-styling'}>
             {this.state.imageData}
           </Masonry>
-          
-          <Modal show={this.state.modalShow} onHide={() => this.setState({modalShow: false})} source={this.state.imgSource} owner={this.state.imgOwner} imagetitle={this.state.imgTitle}  />
-
+          <Modal show={this.state.modalShow} onHide={() => this.setState({modalShow: false})} 
+          source={this.state.imgSource} owner={this.state.imgOwner} imagetitle={this.state.imgTitle}  />
           <Footer /> 
         </div>
     );
