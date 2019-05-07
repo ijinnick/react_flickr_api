@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import Masonry from 'react-masonry-component';
+import axios from 'axios';
 
 import Navbar from './components/NavBar';
 import Footer from './components/Footer';
@@ -44,51 +45,43 @@ class App extends PureComponent {
   }
 
   componentDidMount(){
-    fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b774407c29ba83c911aef10b448862dd&tags=travel%2Coutdoor%2Cbeautiful%2Cbeauty&text='+this.state.searchItem+'&sort=interestingness-desc&extras=&per_page=30&page=&format=json&nojsoncallback=1')
-    .then(response => response.json())
-    .then(function(data){
-
-      let picArray = data.photos.photo.map((imgdata,index) => {
-          let srcPath = 'https://farm'+imgdata.farm+'.staticflickr.com/'+imgdata.server+'/'+imgdata.id+'_'+imgdata.secret+'.jpg';
-          return <Col xs={6} md={6} lg={3} key={index}><Image src={srcPath} alt={imgdata.user} onClick={() => this.modalClick(srcPath,imgdata.owner,imgdata.title)} key={index} fluid rounded/></Col>
-      });
-
+    axios.get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b774407c29ba83c911aef10b448862dd&tags=travel%2Coutdoor%2Cbeautiful%2Cbeauty&text='+this.state.searchItem+'&sort=interestingness-desc&extras=&per_page=30&page=&format=json&nojsoncallback=1')
+    .then(response => {
       this.setState({
-        imageData: picArray,
-        isActive: false
+        imageData: response.data.photos
       });
-    }.bind(this));
+    });
   }
 
   searchQueryBTN = () => {
     let targetValue = document.getElementById('searchInput').value;
-    fetch('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b774407c29ba83c911aef10b448862dd&tags=travel%2Coutdoor%2Cbeautiful%2Cbeauty&text='+targetValue+'&sort=interestingness-desc&extras=&per_page=30&page=&format=json&nojsoncallback=1')
-    .then(response => response.json())
-    .then(function(data){
 
-      let picArray = data.photos.photo.map((imgdata,index) => {
-          let srcPath = 'https://farm'+imgdata.farm+'.staticflickr.com/'+imgdata.server+'/'+imgdata.id+'_'+imgdata.secret+'.jpg';
-          return <Col xs={6} md={6} lg={3} key={index}><Image src={srcPath} alt={imgdata.user} onClick={() => this.modalClick(srcPath,imgdata.owner,imgdata.title)} key={index} fluid rounded/></Col>
-      });
-
+    axios.get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b774407c29ba83c911aef10b448862dd&tags=travel%2Coutdoor%2Cbeautiful%2Cbeauty&text='+targetValue+'&sort=interestingness-desc&extras=&per_page=30&page=&format=json&nojsoncallback=1')
+    .then(response => {
       this.setState({
-        imageData: picArray,
+        imageData: response.data.photos,
         searchItem: targetValue,
         isActive: true
       });
-    }.bind(this));
+    });
   }
 
   render(){
+    const photos = (
+          Array.isArray(this.state.imageData.photo) ? 
+          this.state.imageData.photo.map((data) => {
+            let imageSrc = 'https://farm'+data.farm+'.staticflickr.com/'+data.server+'/'+data.id+'_'+data.secret+'.jpg';
+            return <Col xs={6} md={6} lg={3} key={data.id}><Image src={imageSrc} alt={data.user} onClick={() => this.modalClick(imageSrc,data.owner,data.title)} key={data.id} fluid rounded/></Col>
+          })
+          : null
+    );
 
     return (
         <div className="App">
         <Header title={this.state.searchItem}/>
           <Navbar search={this.searchQueryBTN} searchResult={this.state.searchItem}/>
-          <header className="App-header">
-          </header>
           <Masonry className={'masonry-styling'}>
-            {this.state.imageData}
+            {photos}
           </Masonry>
           <Modal show={this.state.modalShow} onHide={() => this.setState({modalShow: false})} 
           source={this.state.imgSource} owner={this.state.imgOwner} imagetitle={this.state.imgTitle}  />
