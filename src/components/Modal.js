@@ -26,7 +26,6 @@ class verticalModal extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Owner: {this.props.owner}</h4>
             <Col xs={12} md={12} lg={12}>
                 <Image src={this.props.source} alt={this.props.owner} style={styling} />
             </Col>
