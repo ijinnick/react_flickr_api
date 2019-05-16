@@ -1,19 +1,8 @@
 .App {
   text-align: center;
-  background-color: #282c34;
-}
-
-.masonry-styling{
-  max-width: 1250px;
-  margin: 0 auto;
-}
-
-.masonry-styling>div:hover{
-  cursor: pointer;
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 15vh;
   display: flex;
   flex-direction: column;

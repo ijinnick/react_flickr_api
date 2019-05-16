@@ -7,7 +7,10 @@
 }
 
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 900px){
+    .navbar_styling{
+        position: relative;
+    }
     .navbarBtnStyling,#searchInput{
         margin: 8px auto;
     }

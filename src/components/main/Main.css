@@ -1,0 +1,30 @@
+
+
+#basic-navbar-nav>.navbar-nav{
+    text-align: center;
+}
+
+.card_styling{
+    transition: transform .2s;
+    background-color: #51B7BC;
+    border: none;
+}
+
+.card_styling:hover{
+    cursor: pointer;
+    -ms-transform: scale(.9); /* IE 9 */
+    -webkit-transform: scale(.9); /* Safari 3-8 */
+    transform: scale(.9); 
+}  
+
+@media screen and (min-width: 920px){
+    .Main-header{
+        height: 13vh;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .Main-header{
+        height: 5vh;
+    }
+}

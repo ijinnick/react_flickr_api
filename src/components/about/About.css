@@ -1,0 +1,62 @@
+
+
+@media screen and (min-width: 920px){
+    .about_jumbotron_styling{
+        margin-top: 15vh;
+        background-image: linear-gradient(to bottom right, #82C09A, #82AC9F, #177E89);
+    }
+}
+
+@media screen and (max-width: 900px){
+    .about_jumbotron_styling{
+        margin-top: 5vh;
+        background-image: linear-gradient(to bottom right, #82C09A, #82AC9F, #177E89);
+    }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes animate {
+    from {top: 30vh}
+    to {top: 0vh}
+  }
+  
+  /* Standard syntax */
+  @keyframes animate {
+    from {top: 30vh}
+    to {top: 0vh}
+  }
+
+.move_div{
+    -webkit-animation-name: animate; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    animation-name: animate;
+    animation-duration: 4s;
+}
+
+
+.move_div2{
+    -webkit-animation-name: animate; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    animation-name: animate;
+    animation-duration: 4s;
+    animation-delay: 100ms;
+}
+
+.about_jumbotron_styling2{
+    min-height: 80vh;
+    background-image: linear-gradient(to bottom right, #177E89, #82AC9F, #82C09A);
+}
+
+.about_card_styling{
+    background-color: #51B7BC;
+    margin-bottom: 5vh;
+    border: none;
+}
+
+.about_list_group{
+    background-color: transparent!important;
+}
