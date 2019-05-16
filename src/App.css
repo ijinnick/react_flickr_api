@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+<<<<<<< HEAD
 }
 
 .App-header {
@@ -11,3 +12,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+=======
+  background-color: #282c34;
+}
+
+.masonry-styling{
+  max-width: 1250px;
+  margin: 15vh auto;
+}
+
+.masonry-styling>div:hover{
+  cursor: pointer;
+}
+>>>>>>> a32b8cbd4b212d1e0b8d4fa8dd686fad318e1085
