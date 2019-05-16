@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
-import axios from 'axios';
-import api from '../api/Api';
 
 import Header from '../components/Header';
 import About from './about/About';
@@ -36,13 +34,8 @@ class routing extends Component{
         if(windowPath === '/about')
             document.getElementById('home-link').click();
 
-        axios.get(api+targetValue)
-            .then(response => {
-            this.setState({
-                imageData: response.data.photos,
-                searchItem: targetValue,
-                isActive: true
-            });
+        this.setState({
+            searchItem: targetValue
         });
     }
 
