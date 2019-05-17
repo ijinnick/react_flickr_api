@@ -34,12 +34,55 @@ class Main extends PureComponent {
   }
 
   componentDidMount(){
+
     axios.get(api+this.props.searchItem)
     .then(response => {
       this.setState({
         imageData: response.data.photos
       });
     });
+
+    // let animateHTML = function() {
+    //     let elems;
+    //     let windowHeight;
+    //     function init() {
+
+    //         elems = document.querySelectorAll('.hidden_div');
+    //             windowHeight = window.innerHeight;
+    //             addEventHandlers();
+    //             checkPosition();
+    //         }
+            
+    //         function addEventHandlers() {
+    //             window.addEventListener('scroll', checkPosition);
+    //             window.addEventListener('resize', init);
+    //         }
+            
+    //         function checkPosition() {
+    //             for (var i = 0; i < elems.length; i++) {
+    //             var positionFromTop = elems[i].getBoundingClientRect().top;
+    //                 if (positionFromTop - windowHeight <= 0) {
+    //                     elems[i].className = elems[i].className.replace(
+    //                     'hidden_div',
+    //                     'card_styling'
+    //                     );
+    //                 }
+            
+    //                 if ((positionFromTop - windowHeight > 1) || (positionFromTop < 0)) {
+    //                     elems[i].className = elems[i].className.replace(
+    //                     'card_styling',
+    //                     'hidden_div'
+    //                     );
+    //                 }
+    //             }
+    //         }
+            
+    //         return {
+    //             init: init
+    //     };
+    // };
+    // setTimeout(() => animateHTML().init(),1500);
+    // animateHTML().init();
   }
 
   render(){
@@ -63,7 +106,7 @@ class Main extends PureComponent {
     return (
         <div className="Main">
           <header className="Main-header" />
-          <CardColumns>
+          <CardColumns className="column_styling">
             {photos}
           </CardColumns>
           <Modal show={this.state.modalShow} onHide={() => this.setState({modalShow: false})} 

@@ -21,10 +21,31 @@
     .Main-header{
         height: 13vh;
     }
+
+    .column_styling{
+        column-count: 4;
+    }
 }
 
 @media screen and (max-width: 900px){
     .Main-header{
         height: 5vh;
     }
+
+    .column_styling{
+        column-count: 2;
+    }
+}
+
+@keyframes fade-in {
+    from {opacity: 0; transform: scale(.7,.7)}
+    to {opacity: 1;}
+}
+
+.fade-in-element {
+  animation: fade-in 1.4s;
+}
+
+.hidden_div{
+    opacity: 0;
 }
