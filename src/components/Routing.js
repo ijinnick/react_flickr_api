@@ -53,8 +53,9 @@ class routing extends Component{
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                         <Link to="/" id="home-link" className="nav-link">Home</Link>
-                        <Nav.Link href="https://nicz-portfolio.000webhostapp.com" target="_blank">Portfolio</Nav.Link>
                         <Link to="/about" className="nav-link">About Me</Link>
+                        <Nav.Link href="https://mybookfolio.000webhostapp.com" target="_blank">React</Nav.Link>
+                        <Nav.Link href="https://nicz-portfolio.000webhostapp.com" target="_blank">Portfolio</Nav.Link>
                         </Nav>
                         <Form onSubmit={this.handleClick} inline>
                         <FormControl type="text" id="searchInput" placeholder={this.state.searchItem} onFocus={this.clearInput} autoComplete="off"  className="mr-sm-2" />
