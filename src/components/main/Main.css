@@ -4,17 +4,25 @@
     text-align: center;
 }
 
+.card_styling > .card_box{
+    overflow: hidden;
+}
+
 .card_styling{
-    transition: transform .2s;
     background-color: #51B7BC;
+    overflow: hidden;
     border: none;
 }
 
-.card_styling:hover{
+.card_styling img{
+    transition: transform .5s;
+}
+
+.card_styling img:hover{
     cursor: pointer;
-    -ms-transform: scale(.9); /* IE 9 */
-    -webkit-transform: scale(.9); /* Safari 3-8 */
-    transform: scale(.9); 
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
 }  
 
 @media screen and (min-width: 920px){

@@ -2,7 +2,8 @@ import React, {PureComponent} from 'react';
 import axios from 'axios';
 import api from '../../api/Api';
 
-import Modal from '../../components/Modal';
+import Modal from '../modal/Modal';
+import Img from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns';
 
@@ -93,7 +94,9 @@ class Main extends PureComponent {
             let imageSrc = 'https://farm'+data.farm+'.staticflickr.com/'+data.server+'/'+data.id+'_'+data.secret+'.jpg';
             return (
               <Card key={data.id} className="card_styling">
-                <Card.Img variant="top" src={imageSrc} alt={data.user} onClick={() => this.modalClick(imageSrc,data.owner,data.title)} key={data.id} />
+                <div className="card_box">
+                  <Img className="card-img-top" variant="top" src={imageSrc} alt={data.user} onClick={() => this.modalClick(imageSrc,data.owner,data.title)} key={data.id} />
+                </div>
                 <Card.Body>
                   <Card.Title>{data.title}</Card.Title>
                 </Card.Body>

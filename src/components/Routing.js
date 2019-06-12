@@ -4,7 +4,7 @@ import {Route, Link} from 'react-router-dom';
 import Header from '../components/Header';
 import About from './about/About';
 import Main from './main/Main';
-import Footer from './Footer';
+import Footer from './footer/Footer';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
